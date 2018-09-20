@@ -760,7 +760,7 @@ class JWInstrument(SpaceTelescopeInstrument):
 
         Parameters
         ----------
-       add_distortion : bool
+        add_distortion : bool
             If True, will add 2 new extensions to the PSF HDUlist object. The 2nd extension
             will be a distorted version of the over-sampled PSF and the 3rd extension will
             be a distorted version of the detector-sampled PSF.
@@ -848,12 +848,6 @@ class JWInstrument(SpaceTelescopeInstrument):
 
         # Rewrite result variable based on output_mode set:
         SpaceTelescopeInstrument._calc_psf_format_output(self, result, options)
-
-    # Allow users to see poppy calc_psf docstring too
-    ind0 = calc_psf.__doc__.index("add_distortion")  # pull the new parameters
-    ind1 = SpaceTelescopeInstrument.calc_psf.__doc__.index("Returns")  # pull where the parameters list ends
-    calc_psf.__doc__ = SpaceTelescopeInstrument.calc_psf.__doc__[0:ind1] + calc_psf.__doc__[ind0:] + \
-                       SpaceTelescopeInstrument.calc_psf.__doc__[ind1:]
 
     def interpolate_was_opd(self, array, newdim):
         """ Interpolates an input 2D  array to any given size.
